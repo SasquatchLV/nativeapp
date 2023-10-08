@@ -1,59 +1,30 @@
 import React from 'react';
+import MovieList from '../components/MovieList';
 // import type {PropsWithChildren} from 'react';
-import {Button} from '@rneui/base';
-import {Icon} from '@rneui/themed';
 
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 
 // type SectionProps = PropsWithChildren<{
 //   title: string;
 // }>;
 
-const AwesomeIcon = () => (
-  <Icon type="material" name="autorenew" color="#00aced" />
-);
+// const AwesomeIcon = () => (
+//   <Icon type="material" name="autorenew" color="#00aced" />
+// );
 
 function HomeScreen(): JSX.Element {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        contentContainerStyle={styles.scrollViewContent}>
-        <View style={styles.sectionContainer}>
-          <Text style={[styles.sectionDescription]}>This is a text</Text>
-          <Button title="Press if gay" />
-          <AwesomeIcon />
-        </View>
-      </ScrollView>
+      <MovieList />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollViewContent: {
-    flexGrow: 1,
-    padding: 16, // Adjust the padding as needed
-  },
-  sectionContainer: {
-    paddingHorizontal: 8, // Adjust horizontal padding for sections
-    paddingBottom: 16, // Add bottom padding as needed
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
   },
 });
 
